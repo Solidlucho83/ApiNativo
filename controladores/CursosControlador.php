@@ -1,11 +1,17 @@
 <?php
 
+
+
 class  CursosControlador 
 {
     public function index(){
 
+        $cursos = CursosModelos::index("cursos");
+
         $jon = [
-            "detalle"=>"Listado de Cursos"
+            "status"=>200,
+            "total_registros"=>count($cursos),
+            "detalle"=>$cursos
         ];
         echo json_encode($jon, true);
 
